@@ -1,45 +1,48 @@
-📘 Number Summation Puzzle
+# 📘 Number Summation Puzzle  
+A polished **React Native + TypeScript** proof-of-concept built for a 3–4 day sprint.  
+This project demonstrates **game logic architecture**, **scalable grid rendering**, and **high-impact animations** using **React Native Reanimated**.
 
-A polished React Native + TypeScript proof-of-concept built for a 3–4 day sprint.
-This project demonstrates game logic architecture, scalable grid rendering, and high-impact animations using React Native Reanimated.
+---
 
-🚀 Overview
-
-Number Summation Puzzle is an interactive grid-based logic game where players select contiguous numbers (horizontal/vertical) to match a given target sum.
+## 🚀 Overview  
+**Number Summation Puzzle** is an interactive grid-based logic game where players select **contiguous numbers (horizontal/vertical)** to match a given **target sum**.
 
 This project highlights:
 
-Clean, modular architecture
+- Clean, modular architecture  
+- Reusable UI components  
+- Advanced animation mastery  
+- Puzzle scalability (any N×N grid)  
+- Strong UX feedback via polished transitions  
 
-Reusable UI components
+Created as a **technical assignment**, this codebase showcases animation, logic design, and scalable architecture skills.
 
-Advanced animation mastery
+---
 
-Puzzle scalability (any N×N grid)
+## 🎯 Game Objective  
+- You are given a **Target Sum**  
+- Tap to select **adjacent (up/down/left/right)** cells  
+- Build a sequence whose **total equals the target**  
+- On a correct match → cells **pop & vanish**  
+- Invalid selection → cells **wiggle to show an error**
 
-Strong UX feedback via polished transitions
+---
 
-This codebase was created as a technical assignment for showcasing problem-solving, structural planning, and animation skills in React Native.
+## 🛠️ Tech Stack  
 
-🎯 Game Objective
+| Category | Technology |
+|---------|------------|
+| Core Framework | **React Native (Expo)** |
+| Language | **TypeScript** |
+| Animations | **React Native Reanimated v3** |
+| Gestures | **React Native Gesture Handler** |
+| State & Rendering | **Expo** |
+| Architecture | Component-based, scalable grid system |
 
-You are given a Target Sum.
+---
 
-Tap to select adjacent numbers (up, down, left, right).
+## 📁 Folder Structure  
 
-When the running total equals the target, the selected cells pop & vanish.
-
-If invalid / non-adjacent cells are tapped, the selection wiggles to signal an error.
-
-🛠️ Tech Stack
-Category	Technology
-Core Framework	React Native (Expo)
-Language	TypeScript
-Animations	React Native Reanimated v3
-Gestures	React Native Gesture Handler
-Rendering	Expo
-Architecture	Component-driven, fully typed, scalable grid system
-📁 Folder Structure
 number-sum-expo/
 ├─ App.tsx
 ├─ package.json
@@ -47,73 +50,55 @@ number-sum-expo/
 ├─ tsconfig.json
 ├─ babel.config.js
 └─ src/
-   ├─ types.ts
-   ├─ utils.ts
-   ├─ Grid.tsx
-   ├─ Cell.tsx
-   ├─ TargetDisplay.tsx
-   └─ GameScreen.tsx
+├─ types.ts
+├─ utils.ts
+├─ Grid.tsx
+├─ Cell.tsx
+├─ TargetDisplay.tsx
+└─ GameScreen.tsx
 
-🔍 Key Architectural Principles
-✔ Modularity
 
-Every element (Grid, Cell, TargetDisplay) is fully reusable with typed props.
 
-✔ Scalability
+### 🔍 Architectural Highlights  
 
-The grid renders any N×N puzzle without changing internal logic.
+#### ✔ **Modular Components**
+Each core UI element (Grid, Cell, TargetDisplay) is isolated, reusable, and fully typed.
 
-✔ Strict Adjacency Rules
+#### ✔ **Scalable Grid Rendering**
+The grid renders **dynamic N×N puzzles** without any internal changes.
 
-Cells validate orthogonal contiguity (no diagonals).
+#### ✔ **Strict Adjacency Logic**
+Only orthogonally neighboring cells can be selected.
 
-✔ State Isolation
+#### ✔ **Animated Feedback**
+Each cell maintains its own animated state for smooth transitions.
 
-Each cell manages its own animated state while the grid manages game logic.
+---
 
-🎨 Animations (High-Impact Feedback)
-1. Selection Pulse
+## 🎨 Animation Showcase  
 
-Smooth color + scale pulse when a cell is selected/deselected
+### **Selection Pulse**
+A soft scale + color transition when selecting/deselecting a cell.
 
-Implemented using withTiming + interpolateColor
+### **Invalid Wiggle**
+A quick shake animation for incorrect or non-adjacent selections.
 
-2. Invalid Selection Wiggle
+### **Success Pop & Vanish**
+Cells scale up dramatically and fade out on a correct match.
 
-A horizontal shake when the user taps a non-adjacent cell
+Animations are implemented using:
 
-Implemented using withSequence(withTiming(...))
+```ts
+import Animated, {
+  withTiming,
+  withSequence,
+  withDelay,
+  interpolateColor,
+} from 'react-native-reanimated';
 
-3. Success Pop & Vanish
-
-Matched cells scale up dramatically → fade out → disappear
-
-Coordinated animation using withDelay + withTiming
-
-🧩 Core Game Logic
-✔ Adjacency Enforcement
-
-The system checks if a new cell is directly touching the last selected cell:
-
-Same row, adjacent column
-
-Same column, adjacent row
-
-✔ Target Sum Validation
-
-On Submit:
-
-If sum == target → remove cells
-
-Else → wiggle animation
-
-✔ Grid Resetting
-
-After a successful match, removed cells are cleared from the board (POC stage).
-Gravity/refill can be added easily via utility hooks.
 
 ▶️ Running the Project
-1. Install dependencies
+1. Install Dependencies
 npm install
 
 
@@ -121,63 +106,20 @@ or
 
 yarn
 
-2. Run the app
+2. Start Expo
 npx expo start
 
-3. Open on device
+3. Run on Device
 
-Scan QR code using Expo Go
+Scan QR code with Expo Go, or
 
-OR run on Android/iOS emulator
+Use Android/iOS emulator
 
-🧪 Adjusting Grid Size (N × N)
+🧪 Changing the Grid Size (N × N)
 
 Inside GameScreen.tsx:
 
 const GRID_SIZE = 5; // Change to any N
 
 
-The grid automatically scales with no internal code changes — demonstrating the scalability requirement.
-
-📸 Visual Demonstration
-
-🎨 Storyboard + Composite Demo Image
-(For assignment submission)
-
-👉 Place your generated storyboard image inside /assets/storyboard.png
-(or I can embed it for you if needed)
-
-🔧 Extensibility Roadmap
-
-If expanded into a full product, the next steps are:
-
-Feature	Description
-Gravity System	Empty cells fall down, new numbers spawn
-Multiple Targets	Increasing challenge per round
-Level System	Procedurally generated puzzles
-Score + Timer	Competitive gameplay
-Sound Effects	Haptic + audio feedback
-📌 Why This Project Matters
-
-This project demonstrates real-world engineering capabilities:
-
-✔ Strong UI/UX
-
-Polished animations for tactile, responsive gameplay.
-
-✔ Clean Engineering
-
-Separation of concerns, typed components, reusable logic.
-
-✔ Scalability
-
-Proof-of-concept design that can evolve into a full puzzle title.
-
-✔ Production Awareness
-
-Uses industry-standard libraries and patterns.
-
-👤 Author
-
-Abhay Rahangdale
-Feel free to reach out for improvements or collabs.
+The grid auto-scales to larger puzzles without code changes.
