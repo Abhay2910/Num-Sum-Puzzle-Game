@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "NumberSumPuzzle",
+    "slug": "number-sum-puzzle",
+    "version": "1.0.0",
+    "sdkVersion": "48.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
